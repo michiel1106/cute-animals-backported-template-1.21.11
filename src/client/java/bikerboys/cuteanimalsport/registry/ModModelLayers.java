@@ -1,0 +1,15 @@
+package bikerboys.cuteanimalsport.registry;
+
+import bikerboys.cuteanimalsport.*;
+import net.minecraft.client.model.geom.*;
+import net.minecraft.resources.*;
+
+public class ModModelLayers {
+    public static final ModelLayerLocation BABY_OCELOT = new ModelLayerLocation(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "baby_ocelot"), "main");
+
+
+    public static void register() {
+
+    }
+
+}
