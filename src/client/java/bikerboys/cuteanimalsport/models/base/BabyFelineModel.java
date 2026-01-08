@@ -11,7 +11,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.entity.state.FelineRenderState;
 import net.minecraft.util.Mth;
 
-public class BabyFelineModel<S extends FelineRenderState> extends FelineModel<S> {
+public class BabyFelineModel<S extends FelineRenderState> extends AbstractFelineModel<S> {
     protected BabyFelineModel(final ModelPart root) {
         super(root);
     }
