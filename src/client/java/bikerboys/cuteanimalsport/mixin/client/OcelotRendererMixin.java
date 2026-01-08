@@ -25,6 +25,7 @@ public class OcelotRendererMixin {
         cir.cancel();
     }
 
+
     @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/EntityRendererProvider$Context;bakeLayer(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;", ordinal = 1))
     private static ModelPart setNewOcelotModel(EntityRendererProvider.Context instance, ModelLayerLocation modelLayerLocation, Operation<ModelPart> original) {
         return instance.bakeLayer(ModModelLayers.BABY_OCELOT);
