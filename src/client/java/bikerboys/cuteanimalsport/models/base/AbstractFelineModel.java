@@ -1,10 +1,11 @@
 package bikerboys.cuteanimalsport.models.base;
 
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.animal.feline.*;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.state.FelineRenderState;
 
-public abstract class AbstractFelineModel<S extends FelineRenderState> extends EntityModel<S> {
+public abstract class AbstractFelineModel<S extends FelineRenderState> extends OcelotModel {
     protected static final String TAIL_1 = "tail1";
     protected static final String TAIL_2 = "tail2";
     protected final ModelPart leftHindLeg;

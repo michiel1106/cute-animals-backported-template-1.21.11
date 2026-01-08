@@ -56,7 +56,8 @@ public class BabyFelineModel<S extends FelineRenderState> extends AbstractFeline
         return LayerDefinition.create(meshdefinition, 32, 32);
     }
 
-    public void setupAnim(final S state) {
+    @Override
+    public void setupAnim(final FelineRenderState state) {
         super.setupAnim(state);
         float ageScale = state.ageScale;
         if (state.isCrouching) {
@@ -79,6 +80,7 @@ public class BabyFelineModel<S extends FelineRenderState> extends AbstractFeline
         if (!state.isSitting) {
             float animationSpeed = state.walkAnimationSpeed;
             float animationPos = state.walkAnimationPos;
+            this.body.xRot = 0;
             if (state.isSprinting) {
                 this.leftHindLeg.xRot = Mth.cos(animationPos * 0.6662F) * animationSpeed;
                 this.rightHindLeg.xRot = Mth.cos(animationPos * 0.6662F + 0.3F) * animationSpeed;
