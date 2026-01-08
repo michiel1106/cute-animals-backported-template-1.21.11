@@ -5,7 +5,8 @@ import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.state.*;
 
 public class BabyOcelotModel extends BabyFelineModel<FelineRenderState> {
-    protected BabyOcelotModel(ModelPart root) {
+    public BabyOcelotModel(final ModelPart root) {
         super(root);
     }
 }
+
