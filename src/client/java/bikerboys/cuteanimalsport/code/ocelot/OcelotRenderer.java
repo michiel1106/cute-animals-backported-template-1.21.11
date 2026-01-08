@@ -1,4 +1,4 @@
-package bikerboys.cuteanimalsport.code;
+package bikerboys.cuteanimalsport.code.ocelot;
 
 import net.minecraft.client.model.animal.feline.AbstractFelineModel;
 import net.minecraft.client.model.animal.feline.AdultOcelotModel;
