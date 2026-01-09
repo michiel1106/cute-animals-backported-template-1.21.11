@@ -9,6 +9,7 @@ import net.minecraft.client.model.animal.pig.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
+import net.minecraft.core.*;
 import net.minecraft.resources.*;
 import net.minecraft.world.entity.animal.pig.*;
 import org.spongepowered.asm.mixin.*;
@@ -26,13 +27,15 @@ public class PigRendererMixin {
 
     @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/PigRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
     private void getCustomTexture(PigRenderState state, CallbackInfoReturnable<Identifier> cir) {
-        if (state.isBaby) {
-            if (state.variant.modelAndTexture().model().equals(PigVariant.ModelType.COLD)) {
+        if (state.isBaby && state.variant != null) {
+            ClientAsset.ResourceTexture texture = state.variant.modelAndTexture().asset();
+
+            if (texture.texturePath().getPath().contains("cold")) {
                 cir.setReturnValue(BABY_PIG_COLD);
-            } else if (state.variant.modelAndTexture().model().equals(PigVariant.ModelType.NORMAL)) {
-                cir.setReturnValue(BABY_PIG_TEMPERATE);
-            } else {
+            } else if (texture.texturePath().getPath().contains("warm")) {
                 cir.setReturnValue(BABY_PIG_WARM);
+            } else {
+                cir.setReturnValue(BABY_PIG_TEMPERATE);
             }
         }
     }
@@ -47,6 +50,7 @@ public class PigRendererMixin {
                         new AdultAndBabyModelPair<>(new ColdPigModel(context.bakeLayer(ModelLayers.COLD_PIG)), new BabyPigModel(context.bakeLayer(ModModelLayers.BABY_PIG)))
                 )
         );
+        cir.setReturnValue(var);
 
 
     }
