@@ -51,8 +51,6 @@ public class PigRendererMixin {
                 )
         );
         cir.setReturnValue(var);
-
-
     }
 
 }

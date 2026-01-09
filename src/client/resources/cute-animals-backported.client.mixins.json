@@ -1,12 +1,14 @@
 {
-	"required": true,
-	"package": "bikerboys.cuteanimalsport.mixin.client",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"OcelotRendererMixin",
-		"PigRendererMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "bikerboys.cuteanimalsport.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CowRendererMixin",
+    "MushroomCowRendererMixin",
+    "OcelotRendererMixin",
+    "PigRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }
