@@ -21,6 +21,7 @@ public class Models {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CHICKEN, BabyChickenModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_WOLF, BabyWolfModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP, BabySheepModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP_WOOL, BabySheepModel::createBodyLayer);
 
     }
 

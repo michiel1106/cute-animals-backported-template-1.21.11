@@ -1,11 +1,15 @@
 package bikerboys.cuteanimalsport.mixin.client.layers;
 
 import bikerboys.cuteanimalsport.*;
+import bikerboys.cuteanimalsport.registry.*;
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.llamalad7.mixinextras.sugar.*;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.model.*;
+import net.minecraft.client.model.animal.sheep.*;
+import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.layers.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.client.renderer.rendertype.*;
@@ -41,5 +45,10 @@ public class SheepWoolLayerMixin {
         original.call(model, identifier, poseStack, submitNodeCollector, i , state, i1, i2);
     }
 
+
+    @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/geom/EntityModelSet;bakeLayer(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;", ordinal = 1))
+    private ModelPart changeWoolModel(EntityModelSet instance, ModelLayerLocation modelLayerLocation, Operation<ModelPart> original, @Local(argsOnly = true) RenderLayerParent<SheepRenderState, SheepModel> renderLayerParent) {
+        return original.call(instance, ModModelLayers.BABY_SHEEP_WOOL);
+    }
 
 }

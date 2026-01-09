@@ -12,6 +12,7 @@ public class ModModelLayers {
     public static final ModelLayerLocation BABY_CHICKEN = new ModelLayerLocation(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "baby_chicken"), "main");
     public static final ModelLayerLocation BABY_WOLF = new ModelLayerLocation(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "baby_wolf"), "main");
     public static final ModelLayerLocation BABY_SHEEP = new ModelLayerLocation(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "baby_sheep"), "main");
+    public static final ModelLayerLocation BABY_SHEEP_WOOL = new ModelLayerLocation(Identifier.fromNamespaceAndPath(Constants.MOD_ID, "baby_sheep_wool"), "main");
 
 
     public static void register() {
