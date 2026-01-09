@@ -3,6 +3,7 @@
   "package": "bikerboys.cuteanimalsport.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "ChickenRendererMixin",
     "CowRendererMixin",
     "MushroomCowRendererMixin",
     "OcelotRendererMixin",
