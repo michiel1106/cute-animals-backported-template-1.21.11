@@ -122,5 +122,17 @@ public class WolfRendererMixin {
                 state.texture = Constants.of("textures/entity/wolf/wolf_rusty_baby.png");
             }
         }
+
+        else {
+            if (path.contains("angry")) {
+                state.texture = Constants.of("textures/entity/wolf/wolf_angry_baby.png");
+            } else if (path.contains("tame")) {
+                state.texture = Constants.of("textures/entity/wolf/wolf_tame_baby.png");
+            } else {
+                state.texture = Constants.of("textures/entity/wolf/wolf_baby.png");
+            }
+
+        }
+
     }
 }
