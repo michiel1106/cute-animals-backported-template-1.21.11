@@ -1,5 +1,6 @@
 package bikerboys.cuteanimalsport.models.chicken;
 
+import bikerboys.cuteanimalsport.models.base.*;
 import net.minecraft.client.model.animal.chicken.*;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -8,7 +9,7 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 
-public class BabyChickenModel extends ChickenModel {
+public class BabyChickenModel extends AbstractChickenModel {
     public BabyChickenModel(final ModelPart root) {
         super(root);
     }
