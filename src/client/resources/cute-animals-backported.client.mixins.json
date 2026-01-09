@@ -8,8 +8,9 @@
     "MushroomCowRendererMixin",
     "OcelotRendererMixin",
     "PigRendererMixin",
+    "SheepRendererMixin",
     "WolfRendererMixin",
-    "layers.WolfArmorLayerMixin",
+    "layers.SheepWoolLayerMixin",
     "layers.WolfCollarLayerMixin"
   ],
   "injectors": {

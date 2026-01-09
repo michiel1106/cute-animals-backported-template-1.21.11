@@ -5,6 +5,7 @@ import bikerboys.cuteanimalsport.models.chicken.*;
 import bikerboys.cuteanimalsport.models.cow.*;
 import bikerboys.cuteanimalsport.models.ocelot.*;
 import bikerboys.cuteanimalsport.models.pig.*;
+import bikerboys.cuteanimalsport.models.sheep.*;
 import bikerboys.cuteanimalsport.models.wolf.*;
 import net.fabricmc.fabric.api.client.rendering.v1.*;
 import net.minecraft.client.model.geom.builders.*;
@@ -19,6 +20,7 @@ public class Models {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_MOOSHROOM, BabyCowModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CHICKEN, BabyChickenModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_WOLF, BabyWolfModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP, BabySheepModel::createBodyLayer);
 
     }
 
