@@ -32,14 +32,6 @@ public abstract class SheepRendererMixin extends AgeableMobRenderer<Sheep, Sheep
         }
     }
 
-
-    @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/SheepRenderer;addLayer(Lnet/minecraft/client/renderer/entity/layers/RenderLayer;)Z"))
-    private boolean stopthat(SheepRenderer instance, RenderLayer renderLayer, @Local(argsOnly = true) EntityRendererProvider.Context context) {
-        addLayer(new SheepWoolUndercoatLayer(instance, context.getModelSet()));
-        addLayer(new SheepWoolLayer(instance, context.getModelSet()));
-
-        return false;
-    }
     @WrapOperation(
             method = "<init>",
             at = @At(value = "NEW", target = "Lnet/minecraft/client/model/animal/sheep/SheepModel;", ordinal = 1)

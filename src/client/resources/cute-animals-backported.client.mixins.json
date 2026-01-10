@@ -11,6 +11,7 @@
     "SheepRendererMixin",
     "WolfRendererMixin",
     "layers.SheepWoolLayerMixin",
+    "layers.SheepWoolUnderLayerMixin",
     "layers.WolfCollarLayerMixin"
   ],
   "injectors": {
