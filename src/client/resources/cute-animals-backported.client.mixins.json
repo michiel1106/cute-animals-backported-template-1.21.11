@@ -3,6 +3,7 @@
   "package": "bikerboys.cuteanimalsport.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "CatRendererMixin",
     "ChickenRendererMixin",
     "CowRendererMixin",
     "MushroomCowRendererMixin",
@@ -10,6 +11,7 @@
     "PigRendererMixin",
     "SheepRendererMixin",
     "WolfRendererMixin",
+    "layers.CatCollarLayerMixin",
     "layers.SheepWoolLayerMixin",
     "layers.SheepWoolUnderLayerMixin",
     "layers.WolfCollarLayerMixin"

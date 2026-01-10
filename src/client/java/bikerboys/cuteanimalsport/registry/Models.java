@@ -1,6 +1,7 @@
 package bikerboys.cuteanimalsport.registry;
 
 import bikerboys.cuteanimalsport.models.base.*;
+import bikerboys.cuteanimalsport.models.cat.*;
 import bikerboys.cuteanimalsport.models.chicken.*;
 import bikerboys.cuteanimalsport.models.cow.*;
 import bikerboys.cuteanimalsport.models.ocelot.*;
@@ -22,6 +23,8 @@ public class Models {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_WOLF, BabyWolfModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP, BabySheepModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP_WOOL, BabySheepModel::createBodyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CAT, BabyCatModel::createBabyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CAT_COLLAR, BabyCatModel::createBabyLayer);
 
     }
 
