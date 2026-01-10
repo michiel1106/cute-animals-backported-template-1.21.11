@@ -36,11 +36,10 @@ public class SheepWoolLayerMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/SheepWoolLayer;coloredCutoutModelCopyLayerRender(Lnet/minecraft/client/model/Model;Lnet/minecraft/resources/Identifier;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;ILnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;II)V"))
     private void changeOtherSheepThing(Model model, Identifier identifier, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, int i, LivingEntityRenderState state, int i1, int i2, Operation<Void> original) {
 
-        if (state instanceof SheepRenderState state1) {
-            if (state.isBaby) {
-                original.call(model, BABY_SHEEP_WOOL_LOCATION, poseStack, submitNodeCollector, i , state, i1, i2);
-            }
+        if (state.isBaby) {
+            original.call(model, BABY_SHEEP_WOOL_LOCATION, poseStack, submitNodeCollector, i , state, i1, i2);
         }
+
 
         original.call(model, identifier, poseStack, submitNodeCollector, i , state, i1, i2);
     }

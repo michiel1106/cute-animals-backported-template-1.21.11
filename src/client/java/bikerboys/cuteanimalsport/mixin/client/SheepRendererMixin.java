@@ -8,16 +8,22 @@ import com.llamalad7.mixinextras.sugar.*;
 import net.minecraft.client.model.animal.sheep.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.layers.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.resources.*;
+import net.minecraft.world.entity.animal.sheep.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
 
 @Mixin(SheepRenderer.class)
-public class SheepRendererMixin {
+public abstract class SheepRendererMixin extends AgeableMobRenderer<Sheep, SheepRenderState, SheepModel>{
     @Unique
     private static final Identifier SHEEP_BABY_LOCATION = Constants.of("textures/entity/sheep/sheep_baby.png");
+
+    public SheepRendererMixin(EntityRendererProvider.Context context, SheepModel entityModel, SheepModel entityModel2, float f) {
+        super(context, entityModel, entityModel2, f);
+    }
 
     @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/SheepRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
     private void changeSheepTexture(SheepRenderState sheepRenderState, CallbackInfoReturnable<Identifier> cir) {
@@ -27,6 +33,13 @@ public class SheepRendererMixin {
     }
 
 
+    @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/SheepRenderer;addLayer(Lnet/minecraft/client/renderer/entity/layers/RenderLayer;)Z"))
+    private boolean stopthat(SheepRenderer instance, RenderLayer renderLayer, @Local(argsOnly = true) EntityRendererProvider.Context context) {
+        addLayer(new SheepWoolUndercoatLayer(instance, context.getModelSet()));
+        addLayer(new SheepWoolLayer(instance, context.getModelSet()));
+
+        return false;
+    }
     @WrapOperation(
             method = "<init>",
             at = @At(value = "NEW", target = "Lnet/minecraft/client/model/animal/sheep/SheepModel;", ordinal = 1)
