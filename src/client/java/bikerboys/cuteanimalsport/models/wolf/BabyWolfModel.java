@@ -79,7 +79,10 @@ public class BabyWolfModel extends AbstractWolfModel {
 
     @Override
     protected void setSittingPose(final WolfRenderState state) {
-        super.setSittingPose(state);
-        this.body.xRot++;
+        //super.setSittingPose(state);
+        this.body.xRot -= 1.5f;
+
+
+
     }
 }

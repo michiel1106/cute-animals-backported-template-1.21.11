@@ -29,7 +29,7 @@ public abstract class CatCollarLayerMixin extends RenderLayer<CatRenderState, Ca
     }
 
     @WrapOperation(method = "<init>", at = @At(value = "NEW", target = "Lnet/minecraft/client/model/animal/feline/CatModel;", ordinal = 1))
-    private static CatModel replaceBabyCatModel(ModelPart modelPart, Operation<CatModel> original, @Local(argsOnly = true) EntityRendererProvider.Context context) {
+    private static CatModel replaceBabyCatModel(ModelPart modelPart, Operation<CatModel> original, @Local(argsOnly = true) EntityModelSet context) {
         return new BabyCatModel(context.bakeLayer(ModModelLayers.BABY_CAT_COLLAR));
     }
 

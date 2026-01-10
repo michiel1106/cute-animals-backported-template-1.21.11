@@ -27,4 +27,7 @@ public abstract class AbstractFelineModelCat<S extends FelineRenderState> extend
         this.leftFrontLeg = root.getChild("left_front_leg");
         this.rightFrontLeg = root.getChild("right_front_leg");
     }
+
+
+    
 }

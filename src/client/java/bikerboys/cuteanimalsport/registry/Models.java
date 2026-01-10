@@ -24,7 +24,7 @@ public class Models {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP, BabySheepModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_SHEEP_WOOL, BabySheepModel::createBodyLayer);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CAT, BabyCatModel::createBabyLayer);
-        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CAT_COLLAR, BabyCatModel::createBabyLayer);
+        EntityModelLayerRegistry.registerModelLayer(ModModelLayers.BABY_CAT_COLLAR, () -> BabyCatModel.createBabyLayer().apply(BabyCatModel.COLLAR_TRANSFORMER));
 
     }
 

@@ -56,6 +56,7 @@ public abstract class AbstractWolfModel extends WolfModel {
         this.body.zRot = state.getBodyRollAngle(-0.16F);
     }
 
+
     protected void setSittingPose(final WolfRenderState state) {
         float ageScale = state.ageScale;
         this.body.y += 4.0F * ageScale;

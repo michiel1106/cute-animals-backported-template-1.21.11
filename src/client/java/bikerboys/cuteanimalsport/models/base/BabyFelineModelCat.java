@@ -51,7 +51,7 @@ public class BabyFelineModelCat<S extends FelineRenderState> extends AbstractFel
     }
 
     @Override
-    public void setupAnim(final FelineRenderState state) {
+    public void setupAnim(final CatRenderState state) {
         super.setupAnim(state);
         float ageScale = state.ageScale;
         if (state.isCrouching) {
@@ -93,6 +93,10 @@ public class BabyFelineModelCat<S extends FelineRenderState> extends AbstractFel
                 }
             }
         } else if (state.isSitting) {
+
+
+            resetPose();
+
             this.body.xRot += -0.43633232F;
             this.body.y++;
             this.head.z += 0.75F;
@@ -101,9 +105,12 @@ public class BabyFelineModelCat<S extends FelineRenderState> extends AbstractFel
             this.tail1.z -= 0.9F;
             this.leftHindLeg.z -= 0.9F;
             this.rightHindLeg.z -= 0.9F;
+
+
         }
 
         if (state.lieDownAmount > 0.0F) {
+            resetPose();
             this.body.x++;
             this.head.xRot = Mth.rotLerp(state.lieDownAmount, this.head.xRot, (float) (Math.PI / 18));
             this.head.zRot = Mth.rotLerp(state.lieDownAmount, this.head.zRot, (float) (-Math.PI * 5.0 / 12.0));
