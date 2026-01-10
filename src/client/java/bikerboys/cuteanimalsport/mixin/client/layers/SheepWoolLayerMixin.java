@@ -42,6 +42,7 @@ public class SheepWoolLayerMixin {
 
         if (state.isBaby) {
             original.call(model, BABY_SHEEP_WOOL_LOCATION, poseStack, submitNodeCollector, i , state, i1, i2);
+            return;
         }
 
 
