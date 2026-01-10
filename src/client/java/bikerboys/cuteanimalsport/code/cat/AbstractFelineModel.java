@@ -1,4 +1,4 @@
-package bikerboys.cuteanimalsport.code.ocelot;
+package bikerboys.cuteanimalsport.code.cat;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;

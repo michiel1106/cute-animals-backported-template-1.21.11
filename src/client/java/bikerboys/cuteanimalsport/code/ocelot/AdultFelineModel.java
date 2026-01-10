@@ -2,6 +2,8 @@ package bikerboys.cuteanimalsport.code.ocelot;
 
 
 import java.util.Set;
+
+import bikerboys.cuteanimalsport.code.cat.*;
 import net.minecraft.client.model.BabyModelTransform;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
