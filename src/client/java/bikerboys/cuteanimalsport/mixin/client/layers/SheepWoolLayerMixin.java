@@ -23,6 +23,7 @@ public class SheepWoolLayerMixin {
     private static final Identifier BABY_SHEEP_WOOL_LOCATION = Constants.of("textures/entity/sheep/sheep_wool_baby.png");
 
 
+
     @WrapOperation(method = "submit(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;ILnet/minecraft/client/renderer/entity/state/SheepRenderState;FF)V",
     at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/rendertype/RenderTypes;outline(Lnet/minecraft/resources/Identifier;)Lnet/minecraft/client/renderer/rendertype/RenderType;"))
     private RenderType changeSheepThing(Identifier identifier, Operation<RenderType> original, @Local(argsOnly = true) SheepRenderState sheepRenderState) {
@@ -31,6 +32,9 @@ public class SheepWoolLayerMixin {
         }
         return original.call(identifier);
     }
+
+
+
 
     @WrapOperation(method = "submit(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;ILnet/minecraft/client/renderer/entity/state/SheepRenderState;FF)V",
             at = @At(value = "INVOKE", target = "Lnet/minecraft/client/renderer/entity/layers/SheepWoolLayer;coloredCutoutModelCopyLayerRender(Lnet/minecraft/client/model/Model;Lnet/minecraft/resources/Identifier;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;ILnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;II)V"))
@@ -45,9 +49,14 @@ public class SheepWoolLayerMixin {
     }
 
 
+
+
+
     @WrapOperation(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/model/geom/EntityModelSet;bakeLayer(Lnet/minecraft/client/model/geom/ModelLayerLocation;)Lnet/minecraft/client/model/geom/ModelPart;", ordinal = 1))
     private ModelPart changeWoolModel(EntityModelSet instance, ModelLayerLocation modelLayerLocation, Operation<ModelPart> original, @Local(argsOnly = true) RenderLayerParent<SheepRenderState, SheepModel> renderLayerParent) {
         return original.call(instance, ModModelLayers.BABY_SHEEP_WOOL);
     }
+
+
 
 }
