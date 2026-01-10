@@ -9,6 +9,7 @@
     "MushroomCowRendererMixin",
     "OcelotRendererMixin",
     "PigRendererMixin",
+    "RabbitRendererMixin",
     "SheepRendererMixin",
     "WolfRendererMixin",
     "layers.CatCollarLayerMixin",
