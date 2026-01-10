@@ -1,6 +1,8 @@
 package bikerboys.cuteanimalsport.mixin.client;
 
 import bikerboys.cuteanimalsport.*;
+import bikerboys.cuteanimalsport.misc.*;
+import bikerboys.cuteanimalsport.mixin.client.animation.*;
 import bikerboys.cuteanimalsport.models.rabbit.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
@@ -78,6 +80,21 @@ public class RabbitRendererMixin {
                     : "textures/entity/rabbit/rabbit_caerbannog.png");
         });
     }
+
+
+
+    @Inject(method = "extractRenderState", at = @At("TAIL"))
+    private void yourmod$copyAnimationStates(Rabbit rabbit, RabbitRenderState state, float tickDelta, CallbackInfo ci) {
+        RabbitAnimationAccess entityAccess = (RabbitAnimationAccess) rabbit;
+
+        RabbitRenderStateAccess stateAccess = (RabbitRenderStateAccess) state;
+
+        stateAccess.yourmod$getHopAnimationState().copyFrom(entityAccess.yourmod$getHopAnimationState());
+
+        stateAccess.yourmod$getIdleHeadTiltAnimationState().copyFrom(entityAccess.yourmod$getIdleHeadTiltAnimationState());
+    }
+
+
 }
 
 

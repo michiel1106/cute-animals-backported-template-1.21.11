@@ -12,6 +12,7 @@
     "RabbitRendererMixin",
     "SheepRendererMixin",
     "WolfRendererMixin",
+    "animation.RabbitRenderStateMixin",
     "layers.CatCollarLayerMixin",
     "layers.SheepWoolLayerMixin",
     "layers.SheepWoolUnderLayerMixin",
@@ -19,5 +20,8 @@
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  },
+  "mixins": [
+    "animation.RabbitMixin"
+  ]
 }

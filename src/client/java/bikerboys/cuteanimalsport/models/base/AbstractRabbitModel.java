@@ -1,5 +1,6 @@
 package bikerboys.cuteanimalsport.models.base;
 
+import bikerboys.cuteanimalsport.misc.*;
 import net.minecraft.client.model.animal.rabbit.*;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.KeyframeAnimation;
@@ -22,31 +23,24 @@ public abstract class AbstractRabbitModel extends RabbitModel {
         this.idleHeadTiltAnimation = idleHeadTilt.bake(root);
     }
 
-    public void setupAnim(final RabbitRenderState rabbitRenderState) {
-        super.setupAnim(rabbitRenderState);
+    public void setupAnim(final RabbitRenderState state) {
+        super.setupAnim(state);
 
-        ModelPart body = getChildPart("body");
+        RabbitRenderStateAccess access = (RabbitRenderStateAccess) state;
 
-        ModelPart head = body.getChild("head");
-        ModelPart tail = body.getChild("tail");
+        this.hopAnimation.apply(
+                access.yourmod$getHopAnimationState(),
+                state.ageInTicks
+        );
 
-        ModelPart frontLegs = body.getChild("frontlegs");
-        ModelPart rightFrontLeg = frontLegs.getChild("right_front_leg");
-        ModelPart leftFrontLeg = frontLegs.getChild("left_front_leg");
-
-        ModelPart backLegs = getChildPart("backlegs");
-        ModelPart rightHaunch = backLegs.getChild("right_hind_leg").getChild("right_haunch");
-        ModelPart leftHaunch = backLegs.getChild("left_hind_leg").getChild("left_haunch");
+        /*
+        this.idleHeadTiltAnimation.apply(
+                access.yourmod$getIdleHeadTiltAnimationState(),
+                state.ageInTicks
+        );
 
 
-        head.xRot = rabbitRenderState.xRot * (float) (Math.PI / 180.0);
-        head.yRot = rabbitRenderState.yRot * (float) (Math.PI / 180.0);
-        float f = Mth.sin(rabbitRenderState.jumpCompletion * (float) Math.PI);
-        leftHaunch.xRot += f * 50.0F * (float) (Math.PI / 180.0);
-        rightHaunch.xRot += f * 50.0F * (float) (Math.PI / 180.0);
-        leftFrontLeg.xRot += f * -40.0F * (float) (Math.PI / 180.0);
-        rightFrontLeg.xRot += f * -40.0F * (float) (Math.PI / 180.0);
-
+         */
 
     }
 }
