@@ -1,6 +1,6 @@
 package bikerboys.cuteanimalsport.models.pig;
 
-import net.minecraft.client.model.animal.pig.*;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;

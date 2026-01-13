@@ -5,7 +5,8 @@ import bikerboys.cuteanimalsport.registry.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.*;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.animal.rabbit.*;
+import net.minecraft.world.entity.animal.*;
+
 
 public class CuteanimalsbackportedClient implements ClientModInitializer {
 	@Override

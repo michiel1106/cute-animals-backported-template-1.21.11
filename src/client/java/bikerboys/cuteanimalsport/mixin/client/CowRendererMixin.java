@@ -7,15 +7,12 @@ import bikerboys.cuteanimalsport.models.pig.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.google.common.collect.*;
 import net.minecraft.client.model.*;
-import net.minecraft.client.model.animal.cow.*;
-import net.minecraft.client.model.animal.pig.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.core.*;
 import net.minecraft.resources.*;
-import net.minecraft.world.entity.animal.cow.*;
-import net.minecraft.world.entity.animal.pig.*;
+import net.minecraft.world.entity.animal.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
@@ -27,14 +24,14 @@ public class CowRendererMixin {
 
 
     @Unique
-    private static final Identifier BABY_COW_TEMPERATE = Constants.of("textures/entity/cow/cow_temperate_baby.png");
+    private static final ResourceLocation BABY_COW_TEMPERATE = Constants.of("textures/entity/cow/cow_temperate_baby.png");
     @Unique
-    private static final Identifier BABY_COW_COLD = Constants.of("textures/entity/cow/cow_cold_baby.png");
+    private static final ResourceLocation BABY_COW_COLD = Constants.of("textures/entity/cow/cow_cold_baby.png");
     @Unique
-    private static final Identifier BABY_COW_WARM = Constants.of("textures/entity/cow/cow_warm_baby.png");
+    private static final ResourceLocation BABY_COW_WARM = Constants.of("textures/entity/cow/cow_warm_baby.png");
 
-    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/CowRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
-    private void getCustomTexture(CowRenderState state, CallbackInfoReturnable<Identifier> cir) {
+    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/CowRenderState;)Lnet/minecraft/resources/ResourceLocation;", at = @At("HEAD"), cancellable = true)
+    private void getCustomTexture(CowRenderState state, CallbackInfoReturnable<ResourceLocation> cir) {
         if (state.isBaby && state.variant != null) {
             ClientAsset.ResourceTexture texture = state.variant.modelAndTexture().asset();
 

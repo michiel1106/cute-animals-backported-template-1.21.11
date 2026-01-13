@@ -1,10 +1,9 @@
 package bikerboys.cuteanimalsport.models.base;
 
 import bikerboys.cuteanimalsport.misc.*;
-import net.minecraft.client.model.animal.rabbit.*;
+import net.minecraft.client.model.*;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.KeyframeAnimation;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.state.RabbitRenderState;
 import net.minecraft.util.*;

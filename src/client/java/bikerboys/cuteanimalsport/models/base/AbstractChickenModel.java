@@ -1,7 +1,7 @@
 package bikerboys.cuteanimalsport.models.base;
 
-import net.minecraft.client.model.EntityModel;
-import net.minecraft.client.model.animal.chicken.*;
+import net.minecraft.client.model.*;
+
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.state.ChickenRenderState;
 import net.minecraft.util.Mth;
