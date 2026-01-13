@@ -5,12 +5,12 @@ import bikerboys.cuteanimalsport.models.cat.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.llamalad7.mixinextras.sugar.*;
-import net.minecraft.client.model.animal.feline.*;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.resources.*;
-import net.minecraft.world.entity.animal.feline.*;
+import net.minecraft.world.entity.animal.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
@@ -19,18 +19,18 @@ import org.spongepowered.asm.mixin.injection.callback.*;
 public class CatRendererMixin {
 
 
-    @WrapOperation(method = "<init>", at = @At(value = "NEW", target = "Lnet/minecraft/client/model/animal/feline/CatModel;", ordinal = 1))
+    @WrapOperation(method = "<init>", at = @At(value = "NEW", target = "Lnet/minecraft/client/model/CatModel;", ordinal = 1))
     private static CatModel replaceBabyCatModel(ModelPart modelPart, Operation<CatModel> original, @Local(argsOnly = true) EntityRendererProvider.Context context) {
         return new BabyCatModel(context.bakeLayer(ModModelLayers.BABY_CAT));
     }
 
 
 
-    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/feline/Cat;Lnet/minecraft/client/renderer/entity/state/CatRenderState;F)V", at = @At("TAIL"))
+    @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/animal/Cat;Lnet/minecraft/client/renderer/entity/state/CatRenderState;F)V", at = @At("TAIL"))
     private void cuteanimals$babyCatTextures(Cat cat, CatRenderState state, float tickDelta, CallbackInfo ci) {
         if (!cat.isBaby()) return;
 
-        Identifier original = state.texture;
+        ResourceLocation original = state.texture;
         String path = original.getPath();
 
         if (path.contains("all_black")) {

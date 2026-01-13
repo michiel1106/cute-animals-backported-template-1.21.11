@@ -3,7 +3,6 @@ package bikerboys.cuteanimalsport.mixin.client.animation;
 import bikerboys.cuteanimalsport.misc.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.animal.*;
-import net.minecraft.world.entity.animal.rabbit.*;
 import net.minecraft.world.level.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;

@@ -1,12 +1,11 @@
 package bikerboys.cuteanimalsport.mixin.client;
 
 import bikerboys.cuteanimalsport.*;
-import bikerboys.cuteanimalsport.mixin.accessors.*;
 import bikerboys.cuteanimalsport.models.wolf.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.llamalad7.mixinextras.sugar.*;
-import net.minecraft.client.model.animal.wolf.*;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
@@ -21,7 +20,7 @@ public class WolfRendererMixin {
 
     @WrapOperation(
             method = "<init>",
-            at = @At(value = "NEW", target = "Lnet/minecraft/client/model/animal/wolf/WolfModel;", ordinal = 1)
+            at = @At(value = "NEW", target = "Lnet/minecraft/client/model/WolfModel;", ordinal = 1)
     )
     private static WolfModel replaceBabyModel(ModelPart modelPart, Operation<WolfModel> original, @Local(argsOnly = true) EntityRendererProvider.Context context) {
         return new BabyWolfModel(context.bakeLayer(ModModelLayers.BABY_WOLF));
@@ -32,7 +31,7 @@ public class WolfRendererMixin {
     private void cuteanimals$babyWolfTextures(Wolf wolf, WolfRenderState state, float tickDelta, CallbackInfo ci) {
         if (!wolf.isBaby()) return;
 
-        Identifier original = state.texture;
+        ResourceLocation original = state.texture;
         String path = original.getPath();
 
         // WOODS

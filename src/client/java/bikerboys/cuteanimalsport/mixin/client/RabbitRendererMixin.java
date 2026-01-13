@@ -7,12 +7,12 @@ import bikerboys.cuteanimalsport.models.rabbit.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.llamalad7.mixinextras.injector.wrapoperation.*;
 import com.llamalad7.mixinextras.sugar.*;
-import net.minecraft.client.model.animal.rabbit.*;
+import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.resources.*;
-import net.minecraft.world.entity.animal.rabbit.*;
+import net.minecraft.world.entity.animal.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
@@ -23,7 +23,7 @@ public class RabbitRendererMixin {
 
     @WrapOperation(
             method = "<init>",
-            at = @At(value = "NEW", target = "(Lnet/minecraft/client/model/geom/ModelPart;)Lnet/minecraft/client/model/animal/rabbit/RabbitModel;", ordinal = 0)
+            at = @At(value = "NEW", target = "(Lnet/minecraft/client/model/geom/ModelPart;)Lnet/minecraft/client/model/RabbitModel;", ordinal = 0)
     )
     private static RabbitModel replaceAdultModel(ModelPart modelPart, Operation<RabbitModel> original, @Local(argsOnly = true) EntityRendererProvider.Context context) {
         return new AdultRabbitModel(context.bakeLayer(ModModelLayers.RABBIT_ADULT));
@@ -31,7 +31,7 @@ public class RabbitRendererMixin {
 
     @WrapOperation(
             method = "<init>",
-            at = @At(value = "NEW", target = "(Lnet/minecraft/client/model/geom/ModelPart;)Lnet/minecraft/client/model/animal/rabbit/RabbitModel;", ordinal = 1)
+            at = @At(value = "NEW", target = "(Lnet/minecraft/client/model/geom/ModelPart;)Lnet/minecraft/client/model/RabbitModel;", ordinal = 1)
     )
     private static RabbitModel replaceBabyModel(ModelPart modelPart, Operation<RabbitModel> original, @Local(argsOnly = true) EntityRendererProvider.Context context) {
         return new BabyRabbitModel(context.bakeLayer(ModModelLayers.RABBIT_BABY));
@@ -39,8 +39,8 @@ public class RabbitRendererMixin {
 
 
 
-    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/RabbitRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
-    private void cuteanimals$rabbitTextures(RabbitRenderState state, CallbackInfoReturnable<Identifier> cir) {
+    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/RabbitRenderState;)Lnet/minecraft/resources/ResourceLocation;", at = @At("HEAD"), cancellable = true)
+    private void cuteanimals$rabbitTextures(RabbitRenderState state, CallbackInfoReturnable<ResourceLocation> cir) {
         boolean baby = state.isBaby;
 
         if (state.isToast) {

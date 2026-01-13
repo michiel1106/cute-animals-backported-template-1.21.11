@@ -5,13 +5,12 @@ import bikerboys.cuteanimalsport.models.chicken.*;
 import bikerboys.cuteanimalsport.registry.*;
 import com.google.common.collect.*;
 import net.minecraft.client.model.*;
-import net.minecraft.client.model.animal.chicken.*;
 import net.minecraft.client.model.geom.*;
 import net.minecraft.client.renderer.entity.*;
 import net.minecraft.client.renderer.entity.state.*;
 import net.minecraft.core.*;
 import net.minecraft.resources.*;
-import net.minecraft.world.entity.animal.chicken.*;
+import net.minecraft.world.entity.animal.*;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.*;
@@ -22,15 +21,15 @@ import java.util.*;
 public class ChickenRendererMixin {
 
     @Unique
-    private static final Identifier BABY_CHICKEN_TEMPERATE = Constants.of("textures/entity/chicken/chicken_temperate_baby.png");
+    private static final ResourceLocation BABY_CHICKEN_TEMPERATE = Constants.of("textures/entity/chicken/chicken_temperate_baby.png");
     @Unique
-    private static final Identifier BABY_CHICKEN_COLD = Constants.of("textures/entity/chicken/chicken_cold_baby.png");
+    private static final ResourceLocation BABY_CHICKEN_COLD = Constants.of("textures/entity/chicken/chicken_cold_baby.png");
     @Unique
-    private static final Identifier BABY_CHICKEN_WARM = Constants.of("textures/entity/chicken/chicken_warm_baby.png");
+    private static final ResourceLocation BABY_CHICKEN_WARM = Constants.of("textures/entity/chicken/chicken_warm_baby.png");
 
 
-    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/ChickenRenderState;)Lnet/minecraft/resources/Identifier;", at = @At("HEAD"), cancellable = true)
-    private void changeChickenTexture(ChickenRenderState state, CallbackInfoReturnable<Identifier> cir) {
+    @Inject(method = "getTextureLocation(Lnet/minecraft/client/renderer/entity/state/ChickenRenderState;)Lnet/minecraft/resources/ResourceLocation;", at = @At("HEAD"), cancellable = true)
+    private void changeChickenTexture(ChickenRenderState state, CallbackInfoReturnable<ResourceLocation> cir) {
         if (state.isBaby) {
             if (state.variant != null) {
                 ClientAsset.ResourceTexture texture = state.variant.modelAndTexture().asset();
